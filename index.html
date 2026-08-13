@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cloud AI model — merged</title>
+
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- your merged CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar section-content" role="navigation" aria-label="Main">
+      <a href="#" class="nav-logo"><h2 class="logo-text">☁️ Cloud classifier</h2></a>
+
+      <ul class="nav-menu" role="menubar">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#webcam-section" class="nav-link">AI weather model</a></li>
+        <li class="nav-item"><a href="#cloud-library" class="nav-link">Library</a></li>
+        <li class="nav-item"><a href="#about-section" class="nav-link">About us</a></li>
+        <li class="nav-item"><a href="#quiz-section" class="nav-link">Quiz</a></li>
+      </ul>
+
+      <button id="menu-open-button" class="fas fa-bars" aria-label="Open menu"></button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. HOME (hero) -->
+    <section class="hero-section" aria-label="Hero">
+      <div class="section-content">
+        <div class="hero-details">
+          <h2 class="title">AI-Powered Cloud Identification model</h2>
+          <h3 class="subtitle">Identify cloud types instantly using artificial intelligence</h3>
+          <p class="description">Welcome to AI Cloud Identification, a web application that uses a trained AI model to recognize different cloud types from uploaded images</p>
+          <div class="buttons">
+            <a href="#webcam-section" class="button btn-primary">Get Started</a>
+            <a href="#contact-section" class="button btn-ghost">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <img src="https://static.vecteezy.com/system/resources/previews/041/288/596/large_2x/blue-sky-with-cloud-natural-background-with-copy-space-free-photo.JPG" alt="hero" class="hero-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. AI WEATHER MODEL -->
+    <section id="webcam-section" class="webcam-section" aria-label="Cloud model demo">
+      <div class="wrapper">
+        <div class="item">
+          <h1>Cloud type machine learning model</h1>
+
+          <div id="webcam-container">
+            <!-- persistent top prediction (always present / visible before model loads) -->
+            <div id="top-prediction" role="status" aria-live="polite">Model: loading…</div>
+
+            <div class="placeholder">Camera is off — click "Start Camera" or Upload an image</div>
+          </div>
+
+          <div class="button-container">
+            <button type="button" onclick="startWebcam()">Start Camera</button>
+            <button type="button" onclick="stopWebcam()">Stop Camera</button>
+            <button type="button" id="upload-btn">Upload Image</button>
+            <input id="image-input" type="file" accept="image/*" style="display:none" />
+          </div>
+
+          <div id="label-container" aria-live="polite" aria-atomic="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CLOUD LIBRARY -->
+    <section id="cloud-library" class="cloud-library" aria-label="Cloud library — Image gallery">
+      <div class="cloud-stage">
+        <div id="hud" aria-hidden="false">
+          <div id="hud_pct">000%</div>
+          <div class="progress-bar"><div id="prog_fill" class="progress-fill"></div></div>
+        </div>
+        <div class="scene-strip" id="scene_strip" aria-hidden="false"></div>
+
+        <div id="cloud_scroll" class="cloud-scroll" role="region" aria-label="Cloud library scroll area" style="height:80vh; overflow:auto;">
+          <div id="scroll_container" class="scroll_container">
+            <!-- s0..s10 sections (kept as you provided) -->
+            <section id="s0">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card">
+                <div class="tag">00 — Low Altituide Cloud</div>
+                <h1>Cumulus</h1>
+                <p class="body-text">A fluffy cloud with a flat base that usually appears on sunny days</p>
+                <div class="cta-row"><a class="btn btn-primary" href="#s1">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s1">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card right">
+                <div class="tag">01 — LOW ALTITUIDE CLOUD</div>
+                <h2>Stratus</h2>
+                <p class="body-text">A low, gray cloud that forms a blanket across the sky and may bring light drizzle.</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s0">Back</a><a class="btn btn-primary" href="#s2">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s2">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card">
+                <div class="tag">02 — Low altituide cloud</div>
+                <h2>Stratocumulus</h2>
+                <p class="body-text">A low layer of lumpy clouds that usually brings little or no rain.</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s1">Back</a><a class="btn btn-primary" href="#s3">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s3">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card right">
+                <div class="tag">03 — Middle Altitude Clouds</div>
+                <h2>Altocumulus</h2>
+                <p class="body-text">A patch of rounded white or gray clouds that often signals changing weather..</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s2">Back</a><a class="btn btn-primary" href="#s4">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s4">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card">
+                <div class="tag">04 — Middle Altitude Clouds</div>
+                <h2>Altostratus</h2>
+                <p class="body-text">A gray or bluish cloud layer that covers the sky and makes the Sun appear dim.</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s3">Back</a><a class="btn btn-primary" href="#s5">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s5">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card right">
+                <div class="tag">05 — High Altitude Clouds</div>
+                <h2>Cirrus</h2>
+                <p class="body-text">A thin, wispy cloud made of ice crystals that often appears before a weather change</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s4">Back</a><a class="btn btn-primary" href="#s6">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s6">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card">
+                <div class="tag">06 — High Altitude Clouds</div>
+                <h2>Cirrostratus</h2>
+                <p class="body-text">A thin, transparent cloud that may create a halo around the Sun or Moon.</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s5">Back</a><a class="btn btn-primary" href="#s7">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s7">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card right">
+                <div class="tag">07 —High Altitude Clouds</div>
+                <h2>Cirrocumulus</h2>
+                <p class="body-text">A group of tiny white cloudlets that form rippled patterns high in the sky.</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s6">Back</a><a class="btn btn-primary" href="#s8">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s8">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card">
+                <div class="tag">08 — Clouds with Vertical Development</div>
+                <h2>Cumulonimbus</h2>
+                <p class="body-text">A towering anvil-like cloud that produces thunderstorms, heavy rain, and lightning.</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s7">Back</a><a class="btn btn-primary" href="#s9">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s9">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card right">
+                <div class="tag">09 — Clouds with Vertical Development</div>
+                <h2>Nimbostratus</h2>
+                <p class="body-text">A thick, dark cloud that brings steady rain or snow over a wide area.</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s8">Back</a><a class="btn btn-primary" href="#s10">Turn</a></div>
+              </div>
+            </section>
+
+            <section id="s10">
+              <div class="image-wrap" aria-hidden="true"></div>
+              <div class="text-card">
+                <div class="tag">10 — Extras</div>
+                <h2>FUN FACTS</h2>
+                <p class="body-text">Clouds play a big role in Earth's weather,climate,affecting temperature,precipitation & global climate patterns</p>
+                <div class="cta-row"><a class="btn btn-ghost" href="#s9">Back</a><a class="btn btn-primary" href="#s0">Begin again</a></div>
+              </div>
+            </section>
+
+          </div><!-- /scroll_container -->
+        </div><!-- /cloud_scroll -->
+      </div><!-- /cloud-stage -->
+    </section>
+
+    <!-- 4. ABOUT / FAQ / CONTACT (moved after library) -->
+    <section class="about-section" id="about-section">
+      <div class="about-inner">
+        <div class="about-image-wrapper">
+          <img src="https://jooinn.com/images/beautiful-clouds.jpg" alt="Clouds" class="about-image" />
+        </div>
+
+        <div class="about-details">
+          <h2 class="section-title">About Us</h2>
+          <p class="about-text">Cloud Classifier is an AI-powered web application that helps users identify and understand different types of clouds using machine learning. Built with TensorFlow & Teachable Machine, our tool makes cloud classification accessible to everyone.</p>
+          <p class="about-text">Whether you're a student, weather enthusiast, or researcher, our intuitive interface provides real-time cloud identification.</p>
+        </div>
+      </div>
+
+      <div class="about-bottom">
+        <div class="faq-wrapper" id="faq-section">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faq-container" aria-live="polite">
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+                <span class="faq-question-text">What cloud types can this app identify?</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-1" class="faq-answer" hidden>
+                <p>Our app can identify 10 different types of clouds which includes cirrus, cirrostratus, cirrocumulus, altostratus, altocumulus, stratus, stratocumulus, nimbostratus, cumulus, and cumulonimbus.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+                <span class="faq-question-text">How accurate is the AI model?</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-2" class="faq-answer" hidden>
+                <p>Overall 70% accuracy,but accuracy may vary depending on image quality, lighting conditions, and cloud visibility. The model is trained on 600+ cloud images.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+                <span class="faq-question-text">Do you store my photos?</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-3" class="faq-answer" hidden>
+                <p>No, we do not store any photos you upload. All analysis runs locally in your browser.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+                <span class="faq-question-text">Can I use this on my mobile device?</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-4" class="faq-answer" hidden>
+                <p>Yes — Cloud Classifier is responsive and works on mobile, tablet, and desktop. Webcam features work on supported mobile browsers.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+                <span class="faq-question-text">What sources do we use to make this website</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-5" class="faq-answer" hidden>
+                <p>We use Codepen.io,Teachable Machine model,cdnjs,TensorFlow & Github.</p>
+</div>
+            </div>
+                 <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+                <span class="faq-question-text">What's the benefit of using this website?</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-6" class="faq-answer" hidden>
+                <p>Using this website helps users quickly and accurately identify cloud types, making weather learning, teaching, and observation more efficient.</p>
+            </div>
+            </div>
+                 <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-7">
+                <span class="faq-question-text">What are the hardships we faced while making this website?</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-7" class="faq-answer" hidden>
+                <p>As inexperienced coders, we faced challenges debugging small coding errors that could affect the entire website. Balancing project development with Test 2 preparation was also difficult due to the time required for coding and training the teachable model.</p>
+              </div>
+            </div>
+                 <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" aria-controls="faq-8">
+                <span class="faq-question-text">Who contributed to this project?</span>
+                <span class="faq-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="faq-8" class="faq-answer" hidden>
+                <p>Kudos to our amazing team! Queensley, our group leader and AI Model Trainer, led the project and trained the AI model.Jia Yi developed the website,Miithra and Andrea designed the project posters, and Rachel researched and compiled the project information. </p>
+              </div>
+            </div>
+          </div>
+       
+
+        <div class="contact-wrapper" id="contact-section">
+          <h2 class="section-title">Contact Us</h2>
+
+          <div class="contact-form">
+            <form onsubmit="handleContactSubmit && handleContactSubmit(event)" class="contact-form-inner">
+              <div class="form-group"><label for="name">Name</label><input id="name" name="name" type="text" required /></div>
+              <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
+              <div class="form-group"><label for="subject">Subject</label><input id="subject" name="subject" type="text" required /></div>
+              <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+
+          <div class="contact-info">
+            <h3>Other Ways to Reach Us</h3>
+            <p>📧 Email: info@cloudclassifier.com</p>
+            <p>🐦 Twitter: @CloudClassifier</p>
+            <p>💬 Discord: Join our community server</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. QUIZ (separate section) -->
+    <section id="quiz-section" class="quiz-section" aria-label="Cloud quiz">
+      <div class="section-content">
+        <div class="app" aria-live="polite">
+          <h1>Cloud Quiz</h1>
+          <div class="quiz">
+            <h2 id="question">Question goes here</h2>
+            <div id="answer-buttons"></div>
+            <button id="next-btn" class="quiz-btn">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Teachable Machine image library (required) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
