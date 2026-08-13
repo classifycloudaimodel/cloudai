@@ -1,0 +1,913 @@
+/* Importing Google fonts (kept to match original) */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+:root {
+/* colors */
+    --white-color:#ffffff;
+    --teal-color:#567CBD;
+    --dark-color:#2F4156;
+    --primary-color:#CBD9E6;
+    --secondary-color:#F5EFEB;
+
+/* Font size */
+--font-size-s: 0.9rem;
+--font-size-n: 1rem;
+--font-size-m: 1.12rem;
+--font-size-l: 1.5rem;
+--font-size-xl: 2rem;
+--font-size-xxl: 2.3rem;
+
+/* Font weight */ 
+--font-weight-normal:400;
+--font-weight-medium:500;
+--font-weight-semibold:600;
+--font-weight-bold:700;   
+
+/* Border radius */    
+--border-radius-s:8px;
+--border-radius-m:30px;
+--border-radius-circle:50%; 
+
+/* Site max width */     
+--site-max-width:1300px;
+}
+
+/* Stylings for whole site */
+ul{ list-style:none; }
+a{ text-decoration:none; }
+button{ cursor:pointer; border:none; background:none; }
+img{ width:100%; display:block; }
+
+.section-content{
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width:var(--site-max-width);
+}
+
+.section-title{
+  text-align:center;
+  padding:60px 0 100px;
+  text-transform:uppercase;
+  font-size:var(--font-size-xl);
+}
+
+.section-title::after{
+  content:'';
+  width:80px;
+  height:5px;
+  display:block;
+  margin:10px auto 0;
+  border-radius:var(--border-radius-s);
+  background:var(--primary-color);
+}
+
+/* Navbar styling */
+header{
+  position:fixed;
+  width:100%;
+  z-index:5;
+  background:var(--primary-color);
+}
+
+header .navbar{
+  display:flex;
+  padding:20px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.navbar .nav-logo .logo-text{
+  color:var(--dark-color);
+  font-size:var(--font-size-xl);
+  font-weight:var(--font-weight-semibold);
+}
+
+.navbar .nav-menu{
+  display:flex;
+  gap: 10px;
+}
+
+.navbar .nav-menu .nav-link{
+  padding:10px 18px;
+  color:var(--dark-color);
+  font-size:var(--font-size-m);
+  border-radius:var(--border-radius-m);
+  transition:0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover{
+  color:var(--primary-color );
+   background:var(--secondary-color);
+}
+
+/* Hero section styling */
+.hero-section{
+  min-height:100vh;
+  background:var(--primary-color);
+}
+
+.hero-section .section-content{
+  display:flex;
+  align-items:center;
+  min-height:100vh;
+  color:var(--dark-color);
+  justify-content:space-between;
+}
+
+.hero-section .hero-details .title{
+  font-size:var(--font-size-xxl);
+  color:var(--secondary-color);
+  font-family:'miniver',sans-serif;
+}
+
+.hero-section .hero-details .subtitle{
+  margin-top:8px;
+  max-width:70%;
+  font-size:var(--font-size-xl);
+  font-weight:var(--font-weight-semibold);
+}
+
+.hero-section .hero-details .description{
+    max-width:70%;
+    margin:24px 0 40px;
+    font-size:var(--font-size-m);
+}
+
+.hero-section .hero-details .buttons{
+  display:flex;
+  gap:23px;
+}
+
+.hero-section .hero-details .button{
+  padding:10px 26px;
+  border:2px solid transparent;
+  color:var(--primary-color);
+  border-radius:var(--border-radius-m);
+  background:var(--secondary-color);
+  font-weight:var(--font-weight-medium);
+  transition:0.3s ease;
+}
+
+.hero-section .hero-details .button:hover,
+.hero-section .hero-details .contact-us
+{
+  color:var(--white-color);
+  border-color:var(--white-color);
+  background:transparent;
+}
+
+.hero-section .hero-image-wrapper{
+max-width:500px;
+margin-right:30px;
+}
+
+/* ---------- Webcam / model section styles ---------- */
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: #C8D9E6;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding-bottom: 40px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;  /* Total width including `border-width` of scrollbar thumb */
+  height: 0;
+  background: rgba(255, 255, 255, 0);
+}
+::-webkit-scrollbar-thumb {
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0);  /* Transparent border together with `background-clip: padding-box` does the trick */
+  background-clip: padding-box;
+  -webkit-border-radius: 8px;
+  background-color: rgba(202, 202, 202, 0.7);
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.025);
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  align-items: flex-start;
+  row-gap: 50px;
+  column-gap: 20px;
+}
+
+.item {
+  min-width: 500px;
+  flex: 1;
+  padding: 25px 25px 30px 25px;
+  margin: 10px;
+
+  background-color: #fff;
+  
+  border-radius: 5px;
+  border: 1px solid #C8D9E6;
+
+  position: relative;
+}
+
+h1 {
+  color: #3ac2bc;
+  font-size: 1.875rem;
+  margin: 0;
+  font-weight: 500;
+  padding: 5px 0 0 0;
+}
+
+h2 {
+  color: #3ac2bc;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 500;
+  padding-top: 20px;
+}
+
+h3 {
+  color: #bfffff;
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 500;
+  padding: 15px 0 5px 0;
+}
+
+.credits {
+  height: 3em;
+  position: absolute;
+  left: 0;
+  bottom: -45px;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0 15px;
+  margin: 0;
+  font-weight: 500;
+}
+
+p {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+li {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.predict {
+  padding-top: 5px;
+  font-style: italic;
+}
+
+.image-container {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+
+  position: relative;
+}
+
+.cloud-img {
+  width: 100%;
+  height: auto;
+}
+
+.image-ref {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  bottom: 6px;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image-ref p {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+#webcam-container {
+  width: 100%;
+  min-height: 450px;
+  background-color: #000;
+
+  margin: 20px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  gap: 15px;
+}
+
+button {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #016063;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.6px;
+}
+
+#label-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  gap: 15px;
+}
+
+.label-text {
+  width: 150px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.label-bar-container {
+  width: 200px;
+  height: 35px;
+  background-color:#C8D9E6;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.label-bar-fill {
+  height: 100%;
+  background-color: #016063;
+  border-radius: 5px;
+}
+
+.label-probability {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 35px;
+  padding: 0 0 0 5px;
+  margin: 0;
+  color: #fff;
+}
+
+/* FAQ background + text color (use #C8D9E6) */
+.faq-wrapper {
+  background: #C8D9E6;      /* pale background */
+  color: #06262b;           /* dark text for readability */
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+.faq-item {
+  background: #C8D9E6;      /* match wrapper */
+  border: 1px solid rgba(16,20,24,0.06);
+  color: #06262b;
+}
+
+.faq-question,
+.faq-answer {
+  color: #06262b;           /* ensure question/answer text is dark on pale background */
+}
+
+/* Contact */
+.contact-wrapper { max-width:900px; margin:28px auto 0; display:grid; grid-template-columns:1fr 320px; gap:24px; }
+.contact-form-inner .form-group { margin-bottom:12px; }
+.contact-form-inner label { display:block; margin-bottom:6px; font-weight:600; }
+.contact-form-inner input, .contact-form-inner textarea { width:100%; padding:10px 12px; border:1px solid rgba(20,35,50,0.08); border-radius:8px; }
+
+/* ---------- Cloud library styles (kept largely intact) ---------- */
+.cloud-library{
+  --bg:#C8D9E6; --fg:#0f1111; --muted:#667078; --accent:#d4a84b;
+  --font-display:"Bebas Neue",sans-serif; --font-mono:"DM Mono",monospace;
+  --ui-inset:1.25rem; --hairline:0.0625rem;
+  --image-w: clamp(360px, 44vmin, 760px);
+  display:block; position:relative; isolation:isolate; font-family:var(--font-mono); background:var(--bg); color:var(--fg); min-height:100vh;
+}
+.cloud-library #hud{ position:absolute; top:var(--ui-inset); right:var(--ui-inset); z-index:60; text-align:right; color:var(--muted); font-size:.85rem; text-transform:uppercase; }
+.cloud-library .progress-bar{ width:8.5rem; height:var(--hairline); background:rgba(102,112,120,0.12); margin-top:.45rem; position:relative; overflow:hidden; border-radius:6px; }
+.cloud-library .progress-fill{ position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--accent), #f7e1a5); transition:width .12s linear; border-radius:6px; }
+.cloud-library .scene-strip{ position:fixed; left:var(--ui-inset); top:50%; transform:translateY(-50%); z-index:60; display:flex; flex-direction:column; gap:.6rem; pointer-events:auto; }
+.cloud-library .scene-dot{ width:.28rem; height:.28rem; border-radius:50%; background:rgba(102,112,120,0.25); cursor:pointer; border:0; padding:0; transition:transform .18s ease, background .18s ease; }
+.cloud-library .scene-dot.active{ background:var(--accent); transform:scale(1.8); box-shadow:0 6px 20px rgba(212,168,75,0.22); }
+
+.cloud-library .scroll_container section{ display:flex; gap:3rem; align-items:center; min-height:110vh; padding:5rem 3.5rem; box-sizing:border-box; }
+.cloud-library .image-wrap{ flex:0 0 var(--image-w); width:var(--image-w); height:var(--image-w); position:sticky; top:var(--ui-inset); border-radius:12px; overflow:hidden; background-color:#C8D9E6; background-repeat:no-repeat; background-position:center; background-size:cover; box-shadow:0 20px 50px rgba(12,16,20,0.12), inset 0 1px 0 rgba(255,255,255,0.02); transform-origin:center; transition: transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .25s ease; }
+.cloud-library .image-wrap.is-active{ transform: translateY(-6px) scale(1.01); box-shadow: 0 30px 80px rgba(12,16,20,0.18); }
+.cloud-library .text-card{ flex:1 1 0; max-width:64ch; padding:2rem; background:#fff; border-left:var(--hairline) solid rgba(0,0,0,0.06); box-shadow:0 20px 50px rgba(12,16,20,0.04); border-radius:10px; }
+.cloud-library .text-card.right{ margin-left:auto; border-left:none; border-right:var(--hairline) solid rgba(0,0,0,0.06); text-align:right; }
+.cloud-library .tag{ font-size:.75rem; color:var(--accent); letter-spacing:.26em; text-transform:uppercase; margin-bottom:1rem; }
+.cloud-library h1,h2{ font-family:var(--font-display); margin:0; line-height:.92; }
+.cloud-library h1{ font-size:clamp(2.8rem,7vw,4.4rem); }
+.cloud-library h2{ font-size:clamp(1.8rem,4.2vw,3.2rem); }
+.cloud-library .body-text{ margin-top:1.15rem; font-size:1.02rem; line-height:1.64; color:var(--fg); }
+
+.btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.6rem .95rem; font-family:var(--font-mono); font-size:.92rem; text-transform:uppercase; border-radius:999px; text-decoration:none; cursor:pointer; border:0; transition:transform .12s ease, box-shadow .12s ease, background .12s ease; }
+.btn-primary{ background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%); color:var(--accent); border: 1px solid rgba(212,168,75,0.9); box-shadow: 0 8px 20px rgba(212,168,75,0.12); }
+.btn-ghost{ background:transparent; color:var(--muted); border:1px solid rgba(16,20,24,0.06); box-shadow:none; }
+
+@media (max-width:1000px){
+  .cloud-library{ --image-w: clamp(240px, 52vmin, 520px); }
+  .cloud-library .scroll_container section{ flex-direction:column-reverse; gap:1.25rem; min-height:120vh; padding:3rem 1.25rem; }
+  .cloud-library .image-wrap{ position:relative; width:var(--image-w); height:var(--image-w); margin:0 auto; top:auto; }
+  .cloud-library .scene-strip{ display:none; }
+}
+
+/* scene placeholder images */
+#s0 .image-wrap { background-image: url("https://cdn.zmescience.com/wp-content/uploads/2023/08/1280px-Small_puffy_cumulus_clouds.jpg"); }
+#s1 .image-wrap { background-image: url("https://cdn.zmescience.com/wp-content/uploads/2023/08/Stratus_clouds.jpg"); }
+#s2 .image-wrap { background-image: url("https://media.istockphoto.com/id/1324967437/photo/white-cirrocumulus-clouds-blue-sky-background-fluffy-stratocumulus-cloud-texture-altocumulus.jpg?s=612x612&w=0&k=20&c=PX5ChtkBqMOWCqVuDq90gH4owCJJ70aQKNx-Themaqc="); }
+#s3 .image-wrap { background-image: url("https://t3.ftcdn.net/jpg/01/82/84/22/360_F_182842260_j6KDZ0i2R60k8uOXuPr4R4pX4zYSiWlH.jpg"); }
+#s4 .image-wrap { background-image: url("https://media.istockphoto.com/id/2134852212/photo/altostratus-undulatus-clouds-wavy-stripy-cloud-formations.jpg?s=612x612&w=0&k=20&c=sGQPqO0RT52Z86BLMwbwtI8haS7tN6BlIf_14vS_aj4="); }
+#s5 .image-wrap { background-image: url("https://www.thoughtco.com/thmb/O0XQ_P1r29akR9gudPjVZj8OpPM=/2123x1416/filters:no_upscale():max_bytes(150000):strip_icc()/548306131-56a9e2a33df78cf772ab3983.jpg"); }
+#s6 .image-wrap { background-image: url("https://media.istockphoto.com/id/2207293482/photo/the-sun-halo-or-22-degree-halo.jpg?s=612x612&w=0&k=20&c=4vCnTG0CPJM3Dh3QEn0w4709nIDQwf22cTbAiXdu4Xg="); }
+#s7 .image-wrap { background-image: url("https://outforia.com/wp-content/uploads/2022/12/Cirrocumulus-3-12012022.jpg"); }
+#s8 .image-wrap { background-image: url("https://www.angleofattack.com/wp-content/uploads/2023/04/Cumulonimbus-Clouds-scaled.jpg"); }
+#s9 .image-wrap { background-image: url("https://media.istockphoto.com/id/157331559/photo/overcast-sky-with-rain-clouds.jpg?s=612x612&w=0&k=20&c=p-Q_Yb-DhvzY4lSM1mbivOEO67lAw3lxxd_6k9amlkA="); }
+#s10 .image-wrap { background-image: url("https://img.freepik.com/premium-photo/happy-cloud_777078-965.jpg?w=2000"); }
+
+/* Quiz styles: SCOPE to .quiz-section so we don't override global .btn used by cloud-library */
+.quiz-section .app {
+  background: #fff;
+  width: 92%;
+  max-width: 640px;
+  margin: 40px auto;
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.quiz-section h1 {
+  font-size: 24px;
+  color: #001e4d;
+  font-weight: 600;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+.quiz-section .quiz {
+  padding: 12px 0;
+}
+
+.quiz-section .quiz h2 {
+  font-size: 18px;
+  color: #001e4d;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.quiz-section #answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* restrict the quiz button styling so global .btn isn't touched */
+.quiz-section .btn {
+  background:#A9C8E8;
+  color: #222;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #222;
+  padding: 12px 14px;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-size: 15px;
+}
+
+.quiz-section .btn:hover:not([disabled]) {
+  background: #222;
+  color: #fff;
+}
+
+.quiz-section .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.quiz-section .btn.correct {
+  background: #28a745;
+  color: #fff;
+  border-color: #1f7a35;
+}
+
+.quiz-section .btn.incorrect {
+  background: #e63946;
+  color: #fff;
+  border-color: #b72b32;
+}
+
+.quiz-section .quiz-btn {
+  background: #D4C49E;
+  color: #001e4d;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 18px auto 0;
+  border-radius: 6px;
+  cursor: pointer;
+  display: none;
+}
+
+/* ---------- About section layout (About + FAQ + Contact) ---------- */
+.about-inner{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items:center;
+  max-width:var(--site-max-width);
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.about-image-wrapper { max-width: 540px; margin: 0 auto; }
+.about-image { width:100%; border-radius:12px; display:block; }
+
+/* group FAQ and contact below the about content */
+.about-bottom {
+  max-width:var(--site-max-width);
+  margin: 20px auto 80px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items:start;
+}
+
+/* FAQ styling */
+.faq-wrapper { border-radius: 10px; padding: 18px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+.faq-container { display:flex; flex-direction:column; gap: 12px; }
+.faq-item { border-radius: 8px; overflow: hidden; background: #fcfcfc; border: 1px solid rgba(16,20,24,0.04); }
+.faq-question {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 12px 14px;
+  width:100%;
+  background: transparent;
+  font-weight:600;
+}
+
+.about-section .about-text {
+  color: #2F4156;
+}
+
+.faq-answer {
+  padding: 12px 14px 18px;
+  transition: max-height 260ms ease;
+  overflow: hidden;
+}
+
+/* ensure contact column spacing */
+.contact-wrapper { display: flex; flex-direction: column; gap: 18px; }
+.contact-form { background: #ffffff; padding: 12px; border-radius: 8px; box-shadow:0 6px 18px rgba(0,0,0,0.03); }
+.contact-info { padding: 12px; }
+
+/* responsive */
+@media (max-width: 940px){
+  .about-inner { grid-template-columns: 1fr; }
+  .about-bottom { grid-template-columns: 1fr; }
+}
+
+/* Make FAQ answer text black */
+.faq-answer {
+  color: #000 !important;
+}
+
+/* Make label text dark so fallback text is visible on pale backgrounds */
+.label-text {
+  width: 150px;
+  color: #06262b !important;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Ensure label fill is teal and transitions nicely */
+.label-bar-fill {
+  height: 100%;
+  background-color: #016063;
+  border-radius: 5px;
+  transition: width 220ms ease;
+}
+
+/* Keep the probability text readable */
+.label-probability {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  line-height: 35px;
+  padding: 0 6px;
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+}
+
+/* ===== Fix FAQ expand/collapse and colors ===== */
+
+/* Make answers animate open/closed and ensure they appear when JS removes `hidden` */
+.faq-answer {
+  /* collapse by height so transition works; JS controls hidden & visible class */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 260ms ease;
+  /* keep text color black as requested */
+  color: #000 !important;
+  display: block; /* leave display to JS hidden attribute; when panel.hidden = false the element can animate */
+}
+
+/* When JS adds .visible we expand to a large max-height (safely bigger than expected content) */
+.faq-answer.visible {
+  max-height: 1200px; /* enough to show any answer */
+}
+
+/* Restore any per-panel hidden attribute behavior handled by JS (JS sets panel.hidden true/false) */
+/* No display:none here — JS toggles the hidden attribute which overrides CSS display. */
+
+/* ===== Home page text + hero button color ===== */
+/* Make home/hero text and hero buttons use #2F4156 */
+:root {
+  --home-text-color: #2F4156;
+  --model-accent: #697F93; /* model/probability + buttons color */
+}
+
+.hero-section,
+.hero-section .hero-details,
+.hero-section .hero-details .title,
+.hero-section .hero-details .subtitle,
+.hero-section .hero-details .description {
+  color: var(--home-text-color) !important;
+}
+
+/* Hero area buttons text color */
+.hero-section .hero-details .button,
+.hero-section .hero-details .button:hover,
+.hero-section .hero-details .contact-us {
+  color: var(--home-text-color) !important;
+}
+
+/* If you have specific hero button classes, ensure their text color is forced */
+.hero-section .buttons .button,
+.hero-section .buttons .btn-primary,
+.hero-section .buttons .btn-ghost {
+  color: var(--home-text-color) !important;
+}
+
+/* ===== AI Weather Model: label bar + buttons color ===== */
+
+/* Change the label fill color for the model panel */
+#label-container .label-bar-fill,
+.label-bar-fill {
+  background-color: var(--model-accent) !important;
+}
+
+/* Change probability text color if needed (keeps contrast) */
+#label-container .label-probability,
+.label-probability {
+  color: #ffffff !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+}
+
+/* Only style buttons inside the AI model/webcam area — do NOT affect global buttons */
+#webcam-section .button-container button,
+#webcam-section #upload-btn,
+#webcam-section .button-container .btn {
+  background-color: var(--model-accent) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+/* Slight hover visual for these webcam/upload buttons */
+#webcam-section .button-container button:hover,
+#webcam-section #upload-btn:hover {
+  filter: brightness(0.95);
+}
+
+/* Keep label text dark so fallback labels are readable on the pale site background */
+.label-text {
+  color: #06262b !important;
+}
+
+/* Ensure label containers have a readable track color */
+.label-bar-container {
+  background-color: #E6F2F6 !important;
+}
+
+/* Small responsive tweak so FAQ panels animate smoothly on mobile too */
+@media (max-width: 760px) {
+  .faq-answer.visible { max-height: 1600px; }
+}
+
+/* FAQ expand/retract + open color */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 260ms ease;
+  color: #000; /* default (closed) color */
+}
+
+/* when opened, expand and set requested color */
+.faq-answer.open {
+  max-height: 1200px; /* large enough to reveal full content */
+  color: #2F4156 !important; /* requested color when visible */
+}
+
+/* ensure question shows pointer and aria state handled by JS */
+.faq-question { cursor: pointer; }
+
+/* Make label text dark so fallback labels are visible */
+.label-text {
+  color: #06262b !important;
+}
+
+/* Make label fill teal-like to #697F93 (or keep earlier teal) */
+.label-bar-fill {
+  background-color: #697F93 !important; /* user requested #697F93 */
+  transition: width 220ms ease;
+}
+
+/* Buttons in AI model area use the same color */
+#webcam-section .button-container button,
+#webcam-section #upload-btn {
+  background-color: #697F93 !important;
+  color: #fff !important;
+}
+
+
+.faq-answer.open p,
+.faq-question[aria-expanded="true"] + .faq-answer p,
+.faq-answer:not([hidden]) p {
+  color: #2F4156 !important;
+}
+
+/* === Mobile / responsive additions === */
+
+/* prevent fixed header from overlapping content (adjust as needed) */
+main {
+  padding-top: 88px; /* equals header height + a little space */
+}
+
+/* Hide hamburger on desktop by default, show on mobile */
+#menu-open-button {
+  display: none;
+  font-size: 20px;
+  background: transparent;
+  color: var(--dark-color);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+/* NAV: mobile slide-in menu */
+@media (max-width: 880px) {
+  header .navbar { padding: 12px 16px; }
+  .nav-logo .logo-text { font-size: 1.2rem; }
+
+  /* show the hamburger */
+  #menu-open-button { display: inline-flex; align-items: center; justify-content: center; }
+
+  /* convert nav into an overlay panel */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    height: 100vh;
+    padding-top: 84px; /* leave room for header */
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    background: var(--primary-color);
+    box-shadow: -8px 0 24px rgba(15,20,25,0.08);
+    transition: right 220ms ease;
+    z-index: 80;
+    border-left: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .nav-menu.open { right: 0; }
+
+  .nav-menu .nav-link {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    color: var(--dark-color);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+/* Hero becomes stacked on narrow screens */
+@media (max-width: 900px) {
+  .hero-section .section-content {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 18px;
+    padding: 36px 20px;
+    min-height: auto;
+  }
+
+  .hero-section .hero-image-wrapper {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .hero-section .hero-details .subtitle,
+  .hero-section .hero-details .description {
+    max-width: 100%;
+  }
+}
+
+/* Webcam / model area compresses on narrow devices */
+@media (max-width: 760px) {
+  .wrapper { padding: 14px; }
+  .item { padding: 16px; margin: 8px; min-width: auto; }
+  #webcam-container { min-height: 320px; padding: 12px; }
+  .button-container { flex-direction: column; gap: 10px; }
+  #webcam-section .button-container button { width: 100%; }
+  .label-bar-container { width: 140px; height: 32px; }
+  .label-text { width: 110px; font-size: 0.95rem; }
+  #label-container { max-height: 260px; }
+
+  /* give FAQ a bit more tappable spacing */
+  .faq-question { padding: 14px 16px; font-size: 0.97rem; }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+  main { padding-top: 76px; }
+  .hero-section .title { font-size: 1.6rem; }
+  .hero-section .subtitle { font-size: 1rem; }
+  .hero-section .description { font-size: 0.95rem; }
+  .cloud-library .scroll_container section { padding: 2rem 1rem; }
+  .quiz-section .app { width: 96%; padding: 18px; }
+}
+
+/* Make quiz Next button visible (was display:none in original) */
+.quiz-section .quiz-btn {
+  display: block !important;
+  margin: 18px auto 0;
+}
+
+/* Improve "tap outside to close" visual area: dim background when nav open */
+@media (max-width: 880px) {
+  .nav-menu.open + .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.28);
+    z-index: 70;
+    pointer-events: auto;
+    transition: opacity .18s ease;
+  }
+}
