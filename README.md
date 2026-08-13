@@ -1,1 +1,1 @@
-# cloudai
+https://classifycloudaimodel.github.io/cloudai/
