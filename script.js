@@ -212,8 +212,7 @@ let webcam = null; // { video: HTMLVideoElement, stream: MediaStream }
 let isCameraOn = false;
 const fallbackLabels = [
   'Cirrus','Cumulus','Stratus','Cumulonimbus','Altocumulus','Altostratus',
-  'Nimbostratus','Stratocumulus','Cirrocumulus','Cirrostratus','Contrails',
-  'Orographic','Mammatus','Lenticular'
+  'Nimbostratus','Stratocumulus','Cirrocumulus','Cirrostratus'
 ];
 
 function buildLabelUI(labelsArray) {
