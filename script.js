@@ -241,6 +241,64 @@ function buildLabelUI(labelsArray) {
   });
 }
 
+// ---- Compatibility wrapper: ensureFallbackLabelsNow (used earlier in this script) ----
+function ensureFallbackLabelsNow() {
+  const labels = (typeof fallbackLabels !== 'undefined' && Array.isArray(fallbackLabels))
+    ? fallbackLabels.slice()
+    : [
+      'Cirrus','Cumulus','Stratus','Cumulonimbus','Altocumulus','Altostratus',
+      'Nimbostratus','Stratocumulus','Cirrocumulus','Cirrostratus','Contrails',
+      'Orographic','Mammatus','Lenticular'
+    ];
+
+  const lc = document.getElementById('label-container');
+  if (!lc) return;
+
+  const empty = !lc.children || lc.children.length === 0;
+  const mismatchOnDesktop = window.innerWidth >= 760 && (lc.querySelector('.label-text')?.textContent || '') !== labels[0];
+
+  if (!empty && !mismatchOnDesktop) return;
+
+  // Prefer buildLabelUI if available
+  if (typeof buildLabelUI === 'function') {
+    try {
+      buildLabelUI(labels);
+      return;
+    } catch (e) {
+      // fall through to manual build below
+      console.warn('buildLabelUI failed in ensureFallbackLabelsNow, falling back to manual build', e);
+    }
+  }
+
+  // Manual build fallback
+  lc.innerHTML = '';
+  labels.forEach(lbl => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'label-container';
+
+    const labelText = document.createElement('div');
+    labelText.className = 'label-text';
+    labelText.textContent = lbl;
+
+    const barContainer = document.createElement('div');
+    barContainer.className = 'label-bar-container';
+
+    const prob = document.createElement('p');
+    prob.className = 'label-probability';
+    prob.textContent = '0.0%';
+
+    const fill = document.createElement('div');
+    fill.className = 'label-bar-fill';
+    fill.style.width = '0%';
+
+    barContainer.appendChild(prob);
+    barContainer.appendChild(fill);
+    wrapper.appendChild(labelText);
+    wrapper.appendChild(barContainer);
+    lc.appendChild(wrapper);
+  });
+}
+
 // Replace ensureFileInput / attachControls / handleImageUpload with robust versions
 
 function ensureFileInput() {
