@@ -3,11 +3,12 @@ https://classifycloudaimodel.github.io/cloudai/
 edit:
 https://codepen.io/editor/lel88109-spec/pen/019ffb38-3a2f-7ad1-bb83-20f3bbbf459b
 
-teachable machine
+tensor flow
 https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js
 
 https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js
 
+teachable machine 
 https://teachablemachine.withgoogle.com/models/vQIXdQwvp/metadata.json
 
 
